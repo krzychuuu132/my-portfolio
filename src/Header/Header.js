@@ -1,8 +1,8 @@
 import React,{useEffect,useRef,useState} from 'react';
 import gsap from "gsap";
 
-import Navigation from "../Navigation/Navigation";
-import Logo from "../Logo/Logo";
+import Navigation from "./Navigation/Navigation";
+import Logo from "./Logo/Logo";
 
 import "./Header.scss";
 
@@ -31,7 +31,7 @@ const Header = () => {
         if(scrollTop <=100){
             if(navWidth <= 100) {
 
-                const scrollValue  = (scrollTop/10)*-1+35;
+                const scrollValue  = (scrollTop/3)*-1+35;
                
                 if(navWidth <=100) setNavWidth(scrollValue>100?100:scrollValue)
                 }
@@ -46,7 +46,7 @@ const Header = () => {
 
          <header className="header">
                 <Logo/>
-                <Navigation navigationRef={navigationRef}/>
+                <Navigation navigationRef={navigationRef} handleScroll={handleScroll}/>
                
          </header>
          

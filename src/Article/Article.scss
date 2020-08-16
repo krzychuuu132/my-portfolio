@@ -1,0 +1,96 @@
+
+
+.article{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    font-family: 'Lato', sans-serif;
+    padding-right: 5px;
+    
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 60px;
+
+        @media (min-width:800px) {
+            margin-top: 140px;
+        }
+    }
+
+    &__btn{
+        font-family: 'Lato', sans-serif;
+        font-weight: bold;
+        border: 1px solid rgb(206, 200, 200);
+      
+        min-width: 180px;
+       
+        height: 60px;
+        text-transform: uppercase;
+        display: none;
+        font-size: .6rem;
+        cursor: pointer;
+        letter-spacing: 1.5px;
+
+        @media (min-width:800px) {
+            display: block;
+            //width: 100%;
+           // max-width: 200px;
+        }
+        @media (min-width:900px) {
+         
+            min-width: 220px;
+        }
+
+        &-icon{
+            font-size: .45rem;
+           padding-right: 10px;
+        }
+    }
+
+    &__info{
+        width: 100%;
+        max-width: 600px;
+        min-width: 300px;
+        margin: 0 auto;
+
+        &-picture{
+            background-color: rgb(206, 200, 200);
+        }
+
+        &-img{
+            display: block;
+            width: 100%;
+        }
+
+        &-position{
+            padding-left: 30px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 7px;
+            line-height: 2rem;
+        }
+
+        &-text{
+            padding-left: 30px;
+            font-size: .8rem;
+            line-height: 1.5rem;
+            margin-top: 10px;
+        }
+    }
+}
+
+.article .contact-sources{
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    &__source{
+        color: black;
+        margin: 0 10px;
+        font-size: .9rem;
+    }
+}
