@@ -1,12 +1,37 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
 import Contact_sources  from '../Utilities/Contact_sources/Contact_sources';
 import Name_surname from "../img/name-surname.png";
+import Article_picture_1 from "../img/article-picture-1.jpg";
+import Article_picture_2 from "../img/article-picture-2.jpg";
+import Article_picture_3 from "../img/article-picture-3.jpg";
+
+
 
 import "./Article.scss";
 
 
 const Article = () => {
+
+    const sliderSources = [Article_picture_1,Article_picture_2,Article_picture_3];
+
+    const [sliderNumber,setSliderNumber] = useState(0);
+
+    
+
+    const changeImg = () => setSliderNumber(prevState=>prevState===sliderSources.length-1?0:++prevState);
+    
+
+    useEffect(()=>{
+        const interval = setInterval(changeImg,600);
+
+        return () =>{
+            clearInterval(interval);
+        }
+    },[]);
+
+
+
     return ( 
         <article className="article">
 
@@ -18,6 +43,10 @@ const Article = () => {
 
                     <div className="article__info-picture">
                             <img src={Name_surname} alt="Krzysztof Urban" className="article__info-img"/>
+
+                            <div className="article__info-imgs">
+                                    <img src={sliderSources[sliderNumber]} alt={`Article-picture-${sliderNumber+1}`} className="article__info-imgs_img"/>
+                            </div>
                     </div>
 
                     

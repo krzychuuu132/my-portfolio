@@ -5,6 +5,7 @@ import "./styles/style.scss";
 
 import Header from "./Header/Header";
 import Article from './Article/Article';
+import Main from "./Main/Main";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Router>
            <Header/>
            <Article />
+           <Main />
         </Router>
          
     </div>

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Contact_sources from '../../Utilities/Contact_sources/Contact_sources';
 
 import "./Navigation.scss";
+import Section_title from '../../Utilities/Section_title/Section_title';
 
 
 
@@ -20,24 +21,24 @@ const Navigation = ({navigationRef,handleScroll}) => {
 
     const tl  = gsap.timeline({delay:0});
     
-   // gsap.set(menuRef.current,{x:'100%'});
-   // gsap.set(footerRef.current,{y:'100%'});
+
 
     if(activeMenu) {
-        //document.body.style.overflowY = "hidden";
+        gsap.to(navWrapperRef.current,{x:'300%',duration:0});
+        gsap.to(navigationRef.current.previousSibling,{alpha:0,scale:.5,pointerEvents:'none'});
         gsap.to(menuRef.current,{x:0,delay:.1});
         gsap.to(footerRef.current,{y:0,delay:.1});
         gsap.to(contactRef.current,{x:0,delay:.1});
-        gsap.to(navWrapperRef.current,{x:0,delay:.9,duration:.55,ease: "expo.out"})
+        gsap.to(navWrapperRef.current,{x:0,delay:.9,duration:.55,ease: "expo.out"});
         
     }
     else {
-        //document.body.style.overflowY = "initial";
-        //gsap.to(navWrapperRef.current,{x:"250%",duration:3})
+
+        navigationRef.current ? gsap.to(navigationRef.current.previousSibling,{alpha:1,scale:1,pointerEvents:'initial',delay:1.1}):console.log('nooo')
         gsap.to(menuRef.current,{x:'101%',delay:1});
         gsap.to(contactRef.current,{x:'-100%',delay:1});
         gsap.to(footerRef.current,{y:'100%',delay:1});
-       // gsap.to()
+       // 
      
     }
 
@@ -71,7 +72,7 @@ const Navigation = ({navigationRef,handleScroll}) => {
 
                     <div className="nav__menu-contact" ref={contactRef}>
 
-                        <p className="nav__menu-contact_title">skontaktuj się</p>
+                        <Section_title text="skontaktuj się"/>
                         <h2 className="nav__menu-contact_text">lorem ipsum</h2>
 
                     </div>
@@ -94,7 +95,11 @@ const Navigation = ({navigationRef,handleScroll}) => {
                         <li className="menu__item"><Link to="#" className="menu__link" onMouseMove={handleMouseLink}>Technologie</Link></li>
                         <li className="menu__item"><Link to="#" className="menu__link" onMouseMove={handleMouseLink}>Kontakt</Link></li>
                     </ul>
+
+                       <Contact_sources />
                 </div>
+
+             
             </div>
 
         </nav>

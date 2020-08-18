@@ -45,7 +45,7 @@ const Header = () => {
     return ( 
 
          <header className="header">
-                <Logo/>
+                <Logo />
                 <Navigation navigationRef={navigationRef} handleScroll={handleScroll}/>
                
          </header>
