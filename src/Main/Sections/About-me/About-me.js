@@ -3,7 +3,7 @@ import React,{ useState , useEffect } from 'react';
 import "./About-me.scss";
 import Section_title from '../../../Utilities/Section_title/Section_title';
 
-const About_me = () => {
+const About_me = ({aboutMeRef}) => {
 
     const features = ['punktualny','precyzyjny','staranny','wydajny','szybki'];
 
@@ -17,23 +17,25 @@ const About_me = () => {
         return () => clearInterval(interval)
     },[]);
 
+  
+
     
 
    
 
     return ( 
 
-        <section className="sections about-me">
+        <section className="section about-me" ref={aboutMeRef}>
 
             <div className="about-me__features">
                     <h2 className="about-me__features-feature">{features[featureNumber]}</h2>
             </div>
 
-            <div className="about-me__description">
+            <div className="about-me__description section__description">
 
                 <Section_title text="kim jestem"/> 
 
-                <p className="about-me__description-text">
+                <p className="about-me__description-text section__text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue tellus convallis tortor pretium sagittis. Aliquam volutpat et arcu id sollicitudin. Pellentesque pretium sem tellus, in egestas tortor ultrices eu. Etiam nec finibus dui, non efficitur tellus.    
                 </p>           
             

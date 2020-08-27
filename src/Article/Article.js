@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 
 import Contact_sources  from '../Utilities/Contact_sources/Contact_sources';
-import Name_surname from "../img/name-surname.png";
+import {ReactComponent as Name_surname } from "../img/KU.svg";
 import Article_picture_1 from "../img/article-picture-1.jpg";
 import Article_picture_2 from "../img/article-picture-2.jpg";
 import Article_picture_3 from "../img/article-picture-3.jpg";
@@ -42,7 +42,7 @@ const Article = () => {
                 <div className="article__info">
 
                     <div className="article__info-picture">
-                            <img src={Name_surname} alt="Krzysztof Urban" className="article__info-img"/>
+                            <Name_surname  />
 
                             <div className="article__info-imgs">
                                     <img src={sliderSources[sliderNumber]} alt={`Article-picture-${sliderNumber+1}`} className="article__info-imgs_img"/>

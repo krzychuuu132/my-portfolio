@@ -1,0 +1,13 @@
+.projects{
+    
+    position: sticky;
+    top: 0;
+    min-height: 250vh !important;
+   
+    
+    &__wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
