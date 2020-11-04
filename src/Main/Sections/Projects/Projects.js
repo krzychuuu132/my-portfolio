@@ -22,7 +22,7 @@ const Projects = ({projectsRef}) => {
                 <p className="projects__description-text section__text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing . Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
                 </p>
 
 
