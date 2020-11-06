@@ -45,9 +45,10 @@ const Header = () => {
     return ( 
 
          <header className="header">
-                <Logo />
-                <Navigation navigationRef={navigationRef} handleScroll={handleScroll}/>
-               
+                <div className="wrapper">
+                    <Logo />
+                    <Navigation navigationRef={navigationRef} handleScroll={handleScroll}/>
+                </div>
          </header>
          
 

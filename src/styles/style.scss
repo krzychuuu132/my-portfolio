@@ -8,6 +8,10 @@ html{
     font-size: 20px;
 }
 
+:root {
+    --swiper-theme-color: #f5b121 !important;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     min-height: 350vh;

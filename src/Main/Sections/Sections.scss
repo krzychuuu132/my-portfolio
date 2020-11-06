@@ -1,7 +1,7 @@
 
 .section{
     min-height: 80vh;
-    padding: 0px 10px;
+    padding: 40px 15px;
     width: 100%;
     max-width: 1050px;
     margin: 0 auto;
@@ -23,11 +23,9 @@
 
     &__description{
         min-width: 100%;
-        height: 400px;
-        z-index: -1;
-       
-       // 
-       padding-top: 40px;
+        min-height: 400px;
+        padding-top: 40px;
+     
 
         @media (min-width:730px) {
             min-width: 300px;
@@ -39,6 +37,20 @@
         }
 
         
+    }
+
+    &__btn{
+        font-family: 'Lato', sans-serif;
+        font-weight: bold;
+        border: 1px solid #cec8c8;
+        min-width: 180px;
+        height: 60px;
+        text-transform: uppercase;
+        display: none;
+        font-size: .6rem;
+        cursor: pointer;
+        letter-spacing: 1.5px;
+        transition: all .2s .05s ease;
     }
     
 }
