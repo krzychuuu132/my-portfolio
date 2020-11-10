@@ -6,9 +6,10 @@ import Article_picture_1 from "../img/article-picture-1.jpg";
 import Article_picture_2 from "../img/article-picture-2.jpg";
 import Article_picture_3 from "../img/article-picture-3.jpg";
 
-
+import Section_btn from '../Utilities/Section_btn/Section_btn';
 
 import "./Article.scss";
+
 
 
 const Article = () => {
@@ -37,7 +38,7 @@ const Article = () => {
 
             <div className="article__content">
 
-                <button className="article__btn"><span className="fas fa-play article__btn-icon"></span>moje projekty </button>
+            <Section_btn title="moje projekty" section="article"/> 
 
                 <div className="article__info">
 
@@ -54,7 +55,7 @@ const Article = () => {
                     <p className="article__info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium ante ligula, vitae lobortis nunc egestas semper. Nullam nec pulvinar purus, eu rutrum nisl. </p>
                 </div>
 
-                <button className="article__btn"><span className="fas fa-play article__btn-icon"></span>skontaktuj się </button>
+              <Section_btn title="skontaktuj sie" section="article"/> 
 
             </div>
 

@@ -63,7 +63,7 @@ const Navigation = ({navigationRef,handleScroll}) => {
                                 
                         }}></button>
                         <span className="nav__hamburger-close">close</span>
-                        <div className="nav__wrapper-canvas"></div>
+                        
             </div>
 
             <div className={activeMenu?"nav__menu nav__menu--active":"nav__menu"}>
@@ -97,6 +97,7 @@ const Navigation = ({navigationRef,handleScroll}) => {
                     </ul>
 
                        <Contact_sources />
+                       <div className="nav__wrapper-canvas"></div>
                 </div>
 
              

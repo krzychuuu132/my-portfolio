@@ -1,7 +1,9 @@
 .projects{
     
     &__view{
-        
+        flex-grow: 1;
+        max-width: 580px;
+      height: 400px;
     }
    
     
@@ -25,10 +27,26 @@
         margin: 0 25px;
         max-width: 450px;
         min-width: 250px;
+
+        &-text{
+            padding-top: 0 !important;
+        }
+
+        &-title{
+            //text-align: center;
+            font-size: 1.1rem;
+
+        }
     }
 
-    @media (min-width:768px) {
-        
+    
+
+    &__btn{
+        min-width: 200px !important;
+
+        @media (min-width:768px) {
+            display: flex !important;
+        }
     }
 }
 
@@ -41,17 +59,20 @@
 
 .swiper-container {
     width: 100%;
-    max-width: 480px;
     
+    height: 100%;
     
     @media (min-width:400px) {
-        height: 450px;
+        //height: 450px;
        
     }
 }
 
 .swiper-slide{
     width: 100% !important;
+    height: 100%;
+    background-repeat: no-repeat;
+    filter: brightness(.8);
 }
 
 .swiper-slide > img {
@@ -60,6 +81,25 @@
     height: 100%;
     filter: brightness(0.8);
 }
+
+
+// PROJECTS SECTION - BTN
+.projects__btn{
+    &:nth-of-type(2){
+        flex-direction: row-reverse;
+        padding-right: 0 !important;
+   
+
+    }
+
+    &:nth-of-type(2)  &-icon{
+        transform: rotate(180deg);
+      
+       
+    }
+}
+
+
 
 
 

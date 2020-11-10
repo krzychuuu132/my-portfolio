@@ -5,9 +5,10 @@ import { request } from 'graphql-request';
 
 import About_me from "./About-me/About-me";
 import Projects from './Projects/Projects';
+import Abilities from './Abilities/Abilities';
 
 import "./Sections.scss";
-import Abilities from './Projects/Abilities/Abilities';
+
 
 
 const Sections = () => {
@@ -51,6 +52,8 @@ const Sections = () => {
                       img{
                           url
                       }
+                      description
+                      title
                   }
               }
           `
@@ -60,14 +63,24 @@ const Sections = () => {
           };
       
           fetchData();
-    },[dataPage])
+    },[]);
+
+    const { projects } = dataPage;
 
     return ( 
+       
+           
+         dataPage.length !== 0 ?(
         <>
             <About_me aboutMeRef={aboutMeRef}/>
-            <Projects projectsRef={projectsRef}/>
+            <Projects projectsRef={projectsRef} projects={projects}/>
             <Abilities />
-        </>
+        </>)
+
+            :null
+          
+        
+        
      );
 }
  

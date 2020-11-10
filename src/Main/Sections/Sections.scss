@@ -3,7 +3,7 @@
     min-height: 80vh;
     padding: 40px 15px;
     width: 100%;
-    max-width: 1050px;
+    max-width: 1250px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -39,19 +39,7 @@
         
     }
 
-    &__btn{
-        font-family: 'Lato', sans-serif;
-        font-weight: bold;
-        border: 1px solid #cec8c8;
-        min-width: 180px;
-        height: 60px;
-        text-transform: uppercase;
-        display: none;
-        font-size: .6rem;
-        cursor: pointer;
-        letter-spacing: 1.5px;
-        transition: all .2s .05s ease;
-    }
+    
     
 }
 

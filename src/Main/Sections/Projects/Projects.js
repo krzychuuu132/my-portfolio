@@ -1,25 +1,49 @@
-import React from 'react';
-import SwiperCore, { Navigation, Pagination, Scrollbar,EffectCube } from 'swiper';
-
+import React,{ useState,useRef } from 'react';
+import SwiperCore, { Navigation, Pagination, Scrollbar,EffectCube,Controller } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import gsap from 'gsap';
 
+import Section_btn from '../../../Utilities/Section_btn/Section_btn';
 import Section_title from '../../../Utilities/Section_title/Section_title';
 import article_picture from '../../../img/article-picture-1.jpg'
 
-import "./Projects.scss";
-
+// SWIPER
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
+import 'swiper/components/controller/controller.scss';
 import 'swiper/components/effect-cube/effect-cube.scss';
 
-SwiperCore.use([ EffectCube,Navigation, Pagination, Scrollbar]);
+//STYLES
+
+import "./Projects.scss";
 
 
+SwiperCore.use([ EffectCube,Navigation, Pagination, Scrollbar,Controller]);
 
 
-const Projects = ({projectsRef}) => {
+const Projects = ({projectsRef,projects}) => {
+
+        const tl = gsap.timeline({repeatDelay:0});
+
+        
+    
+        // HOOKS
+
+        // ~useState
+        const [counter,setCounter] = useState(0);
+
+        // ~useRef
+        const projectDescriptionRef = useRef(null);
+        const projectTitleRef  =  useRef(null);
+
+    const slideChange  = () =>{
+        tl.set([projectTitleRef.current,projectDescriptionRef.current],{opacity:0});
+
+        tl.fromTo(projectTitleRef.current,{opacity:0,x:100},{x:0,ease: "elastic.out(1, 0.3)",duration:.7,opacity:1})
+        .fromTo(projectDescriptionRef.current,{opacity:0,scale:.5},{scale:1,ease: "elastic.out(1, 0.3)",duration:1.5,opacity:1});
+    }
 
     return ( 
 
@@ -27,19 +51,20 @@ const Projects = ({projectsRef}) => {
 
             <div className="projects__wrapper">
 
+            
+
             <div className="projects__description section__description">
                 <Section_title text="moje projekty"/>
-                <p className="projects__description-text section__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.</p>
+               
+                <h2 className="projects__description-title" ref={projectTitleRef}>{projects[counter].title}</h2>
 
-                <p className="projects__description-text section__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing . Vivamus eleifend finibus vestibulum. Nam mattis massa in mauris tempor facilisis.
+                <p className="projects__description-text section__text" ref={projectDescriptionRef}>
+                    {projects[counter].description}
                 </p>
 
                 <div className="projects__links">
-                        <button className="section__btn undefined__btn"><span class="fas fa-play section__btn-icon"></span>Podgląd dema</button>
-                        <button className="section__btn undefined__btn"><span class="fas fa-play section__btn-icon"></span>Podgląd GitHuba</button>
+                        <Section_btn title="Podgląd dema" section="projects"/>
+                        <Section_btn title="Podgląd GitHuba" section="projects"/> 
                 </div>
             </div>
 
@@ -50,13 +75,16 @@ const Projects = ({projectsRef}) => {
                 navigation
                 spaceBetween={50}
                 slidesPerView={3}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={({activeIndex}) => {setCounter(activeIndex);slideChange()}}
+                controller
+               
                 >
-                    <SwiperSlide><img src={article_picture} alt="project-picture"/></SwiperSlide>
-                    <SwiperSlide><img src={article_picture} alt="project-picture"/></SwiperSlide>
-                    <SwiperSlide><img src={article_picture} alt="project-picture"/></SwiperSlide>
-                    <SwiperSlide><img src={article_picture} alt="project-picture"/></SwiperSlide>
+                   
+                   {
+                       projects.map((project,index)=>(
+                            <SwiperSlide key={index} style={{backgroundImage:`url(${project.img.url})`}}></SwiperSlide>
+                       ))
+                   }
                     
                 </Swiper>
 
