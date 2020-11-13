@@ -1,4 +1,4 @@
-import React, { useState , useRef } from 'react';
+import React, { useState , useRef,useContext } from 'react';
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 
@@ -7,11 +7,14 @@ import Contact_sources from '../../Utilities/Contact_sources/Contact_sources';
 import "./Navigation.scss";
 import Section_title from '../../Utilities/Section_title/Section_title';
 
+// CONTEXT
+import NavigationContext from '../../context/NavigationContext';
 
 
-const Navigation = ({navigationRef,handleScroll}) => {
 
-    const [activeMenu,setActiveMenu] = useState(false);
+const Navigation = ({navigationRef}) => {
+
+    
 
     const contactRef = useRef(null);
     const footerRef = useRef(null);
@@ -19,9 +22,9 @@ const Navigation = ({navigationRef,handleScroll}) => {
     const hamburgerRef = useRef(null);
     const navWrapperRef = useRef(null);
 
-    const tl  = gsap.timeline({delay:0});
-    
+    const navigationContext = useContext(NavigationContext);
 
+    const activeMenu = navigationContext.activeMenu;
 
     if(activeMenu) {
         gsap.to(navWrapperRef.current,{x:'300%',duration:0});
@@ -32,37 +35,35 @@ const Navigation = ({navigationRef,handleScroll}) => {
         gsap.to(navWrapperRef.current,{x:0,delay:.9,duration:.55,ease: "expo.out"});
         
     }
+
     else {
 
-        navigationRef.current ? gsap.to(navigationRef.current.previousSibling,{alpha:1,scale:1,pointerEvents:'initial',delay:1.1}):console.log('nooo')
+        navigationRef.current ? 
+        gsap.to(navigationRef.current.previousSibling,{alpha:1,scale:1,pointerEvents:'initial',delay:1.1}):
+        console.log('');
+        
         gsap.to(menuRef.current,{x:'101%',delay:1});
         gsap.to(contactRef.current,{x:'-100%',delay:1});
         gsap.to(footerRef.current,{y:'100%',delay:1});
-       // 
+       
      
     }
 
-    
-    const handleMouseLink = (e) => gsap.fromTo(e.target,{scale:0.96},{scale:1,duration:.3,ease:'linear'})
-    
-    
+    return ( 
+        
    
 
-
-
-    return ( 
-        <>
         <nav className={activeMenu?"nav nav--active":"nav"} ref={navigationRef}>
 
             <div className="nav__wrapper" ref={navWrapperRef}>
-                        <button className={activeMenu?"nav__hamburger nav__hamburger--active":"nav__hamburger"} ref={hamburgerRef}onClick={()=>{
-                            setActiveMenu(!activeMenu)
-                            //if(handleScroll()) console.log('dawajjj');
-                           // else setActiveMenu(true);
-                              
-                                
-                        }}></button>
-                        <span className="nav__hamburger-close">close</span>
+                        <button 
+                        className={activeMenu?"nav__hamburger nav__hamburger--active":"nav__hamburger"} 
+                        ref={hamburgerRef}
+                        onClick={()=>navigationContext.toogleActiveMenu(!activeMenu)}>
+                                    <span className="nav__hamburger-backgr"></span>
+                                   <span className="nav__hamburger-close">close</span>
+                            </button>
+                     
                         
             </div>
 
@@ -89,11 +90,11 @@ const Navigation = ({navigationRef,handleScroll}) => {
                 
                 <div className="menu"ref={menuRef}>
                     <ul className="menu__list">
-                        <li className="menu__item"><Link to="#" className="menu__link" onMouseEnter={handleMouseLink}>kim jestem</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" onMouseMove={handleMouseLink}>Projekty</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" onMouseMove={handleMouseLink}>Umiejętności</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" onMouseMove={handleMouseLink}>Technologie</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" onMouseMove={handleMouseLink}>Kontakt</Link></li>
+                        <li className="menu__item"><Link to="#" className="menu__link" >kim jestem</Link></li>
+                        <li className="menu__item"><Link to="#" className="menu__link" >Projekty</Link></li>
+                        <li className="menu__item"><Link to="#" className="menu__link" >Umiejętności</Link></li>
+                        <li className="menu__item"><Link to="#" className="menu__link" >Technologie</Link></li>
+                        <li className="menu__item"><Link to="#" className="menu__link" >Kontakt</Link></li>
                     </ul>
 
                        <Contact_sources />
@@ -104,8 +105,8 @@ const Navigation = ({navigationRef,handleScroll}) => {
             </div>
 
         </nav>
-        
-        </>
+  
+      
      );
 }
  

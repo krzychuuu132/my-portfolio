@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef} from 'react';
 
 import Sections from "./Sections/Sections";
 
@@ -6,10 +6,13 @@ import "./Main.scss";
 
 const Main = () => {
 
+    const mainRef  = useRef(null);
+
+ 
     return ( 
 
-        <main className="main">
-            <Sections/>
+        <main className="main" ref={mainRef}>
+            <Sections mainRef={mainRef}/>
         </main>
      );
 }

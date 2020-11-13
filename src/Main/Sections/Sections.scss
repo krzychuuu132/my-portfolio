@@ -43,3 +43,37 @@
     
 }
 
+.section__specialists{
+
+    &-specialist{
+        flex-grow: 1;
+        
+        &:nth-of-type(1){
+            margin-right: 15px;
+        }
+
+        &:nth-of-type(2){
+            margin-left: 15px;
+        }
+    }
+
+    &-btn{
+        height: 55px;
+        background-color: #19181D;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 55px;
+        font-size: .6rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    &-description{
+        font-size: .7rem;
+        color: #999;
+        line-height: 1.4rem;
+        padding-top: 40px;
+    }
+}
+

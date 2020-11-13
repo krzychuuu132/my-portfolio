@@ -11,7 +11,7 @@ import "./Sections.scss";
 
 
 
-const Sections = () => {
+const Sections = ({mainRef}) => {
 
     const [dataPage,setDataPage] = useState([]);
     const aboutMeRef = useRef(null);
@@ -27,7 +27,17 @@ const Sections = () => {
 
         const tl = gsap.timeline();
     
-        
+        if(dataPage.length !==0){
+
+               console.log(mainRef.current.children[2].children)
+               gsap.fromTo(mainRef.current.children[2].children,{x: '-=200',opacity:0},{x:0,opacity:1,stagger:.3,duration:1,scrollTrigger:{
+                trigger:'.abilities',
+                start: 'top 50%',
+               // markers:true,
+                pinReparent:true,
+                toggleActions: "play reverse play reverse"
+            }})
+        }
 
         gsap.fromTo(specialists,{x: '-=200',opacity:0},{x:0,opacity:1,stagger:.3,duration:1,scrollTrigger:{
             trigger:'.about-me',
@@ -37,9 +47,9 @@ const Sections = () => {
             toggleActions: "play reverse play reverse"
         }})
 
-        
       
-    },[])
+      
+    },[dataPage])
 
     
     useEffect(()=>{
@@ -54,6 +64,8 @@ const Sections = () => {
                       }
                       description
                       title
+                      demoLink
+                      githubLink
                   }
               }
           `

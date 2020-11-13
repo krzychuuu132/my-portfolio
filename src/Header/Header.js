@@ -1,14 +1,16 @@
-import React,{useEffect,useRef,useState} from 'react';
+import React,{useEffect,useRef,useState,useContext} from 'react';
 import gsap from "gsap";
 
 import Navigation from "./Navigation/Navigation";
 import Logo from "./Logo/Logo";
 
+import NavigationContext from '../context/NavigationContext';
+
 import "./Header.scss";
 
 const Header = () => {
 
- 
+    const navigationContext = useContext(NavigationContext);
 
     const [navWidth,setNavWidth] = useState(0);
     const navigationRef = useRef(null);
@@ -18,10 +20,12 @@ const Header = () => {
         
 
         return ()=>{
-           // window.removeEventListener(handleScroll)
+            window.removeEventListener("scroll",handleScroll);
         }
         
     },[navWidth])
+
+    let scrolling = false;
 
     const handleScroll = (e) =>{
      
@@ -37,6 +41,10 @@ const Header = () => {
                 }
            
         }
+        console.log(navigationContext.activeMenu)
+        if(navigationContext.activeMenu){
+            navigationContext.toogleActiveMenu(false);
+        }
      
     }
 
@@ -47,7 +55,7 @@ const Header = () => {
          <header className="header">
                 <div className="wrapper">
                     <Logo />
-                    <Navigation navigationRef={navigationRef} handleScroll={handleScroll}/>
+                    <Navigation navigationRef={navigationRef} scrolling={scrolling}/>
                 </div>
          </header>
          

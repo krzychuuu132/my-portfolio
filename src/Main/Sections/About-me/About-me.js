@@ -1,4 +1,4 @@
-import React,{ useState , useEffect } from 'react';
+import React,{ useState , useEffect,ReactDOM } from 'react';
 
 import "./About-me.scss";
 import Section_title from '../../../Utilities/Section_title/Section_title';
@@ -18,7 +18,18 @@ const About_me = ({aboutMeRef}) => {
     },[]);
 
   
+    const handleSpecialistMove = (e) =>{
+        const letters = e.target.innerText.split("");
 
+        letters.map(letter=>{
+         
+          const elements =  document.createElement('span')
+            elements.innerText = letter
+            console.log(elements)
+               document.getElementById('one').innerHTML = `<span>${letter}</span>`
+            
+        })
+    }
     
 
    
@@ -41,19 +52,19 @@ const About_me = ({aboutMeRef}) => {
             
                 <div className="about-me__specialists">
 
-                    <div className="about-me__specialists-specialist">
+                    <div className="about-me__specialists-specialist section__specialists-specialist">
 
-                        <div className="about-me__specialists-btn">Lorem ipsum</div>
-                        <p className="about-me__specialists-description">
+                        <div className="about-me__specialists-btn section__specialists-btn" id="one" onMouseMove={handleSpecialistMove}>Lorem ipsum</div>
+                        <p className="about-me__specialists-description section__specialists-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue tellus convallis tortor pretium sagittis. 
                         </p>
 
                     </div>
 
-                    <div className="about-me__specialists-specialist">
+                    <div className="about-me__specialists-specialist section__specialists-specialist">
 
-                        <div className="about-me__specialists-btn">Lorem ipsum</div>
-                        <p className="about-me__specialists-description">
+                        <div className="about-me__specialists-btn section__specialists-btn" id="one" onMouseMove={handleSpecialistMove}>Lorem ipsum</div>
+                        <p className="about-me__specialists-description section__specialists-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue tellus convallis tortor pretium sagittis. 
                         </p>
 

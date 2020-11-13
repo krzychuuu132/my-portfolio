@@ -2,8 +2,9 @@
     
     &__view{
         flex-grow: 1;
-        max-width: 580px;
-      height: 400px;
+        height: 350px;
+        width: 100%;
+        
     }
    
     
@@ -23,10 +24,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        width: 100%;
+        width: 100% !important;
         margin: 0 25px;
-        max-width: 450px;
-        min-width: 250px;
+        max-width: 420px;
+        min-width: 300px;
 
         &-text{
             padding-top: 0 !important;
@@ -55,13 +56,19 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+
+    &-link{
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
 }
 
 .swiper-container {
     width: 100%;
-    
+    max-width: 600px;
     height: 100%;
-    
+    max-height: 350px;
     @media (min-width:400px) {
         //height: 450px;
        
@@ -72,7 +79,9 @@
     width: 100% !important;
     height: 100%;
     background-repeat: no-repeat;
-    filter: brightness(.8);
+    filter: drop-shadow(2px 4px 6px black) brightness(.9);
+    background-position: left center;
+   background-size: cover;
 }
 
 .swiper-slide > img {
@@ -84,11 +93,12 @@
 
 
 // PROJECTS SECTION - BTN
+
 .projects__btn{
     &:nth-of-type(2){
         flex-direction: row-reverse;
         padding-right: 0 !important;
-   
+        margin-left: 5px !important;
 
     }
 
@@ -97,6 +107,11 @@
       
        
     }
+}
+
+.projects__btn > span:nth-child(2) {
+    transform: rotate(180deg);
+    background-color: red;
 }
 
 

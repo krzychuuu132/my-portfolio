@@ -1,0 +1,42 @@
+
+.abilities{
+
+}
+
+.abilities__wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.abilities{
+
+    &__skills{
+        margin: 40px 0;
+        font-family: 'Russo One', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        color: #19181D;
+      
+    }
+
+    &__text{
+        width: 100%;
+        max-width: 600px;
+        line-height: 1.4rem !important;
+        text-align: center;
+    }
+
+    &__elements{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 80px;
+        
+    }
+}
+
+.abilities__specialists-specialist{
+    margin: 0 10px;
+}

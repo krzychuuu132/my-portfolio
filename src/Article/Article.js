@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
 
-import Contact_sources  from '../Utilities/Contact_sources/Contact_sources';
-import {ReactComponent as Name_surname } from "../img/KU.svg";
 import Article_picture_1 from "../img/article-picture-1.jpg";
 import Article_picture_2 from "../img/article-picture-2.jpg";
 import Article_picture_3 from "../img/article-picture-3.jpg";
+import {ReactComponent as Name_surname } from "../img/KU.svg";
 
 import Section_btn from '../Utilities/Section_btn/Section_btn';
+import Contact_sources  from '../Utilities/Contact_sources/Contact_sources';
 
 import "./Article.scss";
 
