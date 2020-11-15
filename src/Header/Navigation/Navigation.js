@@ -11,6 +11,25 @@ import Section_title from '../../Utilities/Section_title/Section_title';
 import NavigationContext from '../../context/NavigationContext';
 
 
+const navigationLinksData = [
+    {
+        id:0,title:'kim jestem',to:'#about-me',
+    },
+    {
+        id:1,title:'projekty',to:'#projects',
+    },
+    {
+        id:2,title:'umiejętności',to:'#abilities',
+    },
+    {
+        id:3,title:'technologie',to:'#technologies',
+    },
+    {
+        id:4,title:'kontakt',to:'#contact',
+    }
+]
+
+
 
 const Navigation = ({navigationRef}) => {
 
@@ -90,11 +109,15 @@ const Navigation = ({navigationRef}) => {
                 
                 <div className="menu"ref={menuRef}>
                     <ul className="menu__list">
-                        <li className="menu__item"><Link to="#" className="menu__link" >kim jestem</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" >Projekty</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" >Umiejętności</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" >Technologie</Link></li>
-                        <li className="menu__item"><Link to="#" className="menu__link" >Kontakt</Link></li>
+                     {
+                         navigationLinksData.map(navigationLink =>(
+
+                         <li className="menu__item" key={navigationLink.id} onClick={()=>navigationContext.toogleActiveMenu(false)}>
+                             <a href={navigationLink.to} className="menu__link" >{navigationLink.title}</a>
+                         </li>
+
+                         ))
+                     }
                     </ul>
 
                        <Contact_sources />

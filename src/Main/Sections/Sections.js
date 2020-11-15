@@ -8,7 +8,7 @@ import Projects from './Projects/Projects';
 import Abilities from './Abilities/Abilities';
 
 import "./Sections.scss";
-
+import Techologies from './technologies/Technologies';
 
 
 const Sections = ({mainRef}) => {
@@ -16,7 +16,11 @@ const Sections = ({mainRef}) => {
     const [dataPage,setDataPage] = useState([]);
     const aboutMeRef = useRef(null);
     const projectsRef = useRef(null);
-    
+
+    // ABILITIES
+    const abilitiesElementsRef = useRef(null);
+    const abilitiesContentRef = useRef(null);
+
     gsap.registerPlugin(ScrollTrigger);
 
     
@@ -26,20 +30,31 @@ const Sections = ({mainRef}) => {
         const specialists = document.querySelectorAll('.about-me__specialists-specialist');
 
         const tl = gsap.timeline();
+
+        console.log(abilitiesElementsRef)
     
         if(dataPage.length !==0){
 
-               console.log(mainRef.current.children[2].children)
-               gsap.fromTo(mainRef.current.children[2].children,{x: '-=200',opacity:0},{x:0,opacity:1,stagger:.3,duration:1,scrollTrigger:{
+            // ABILITIES SECTION ANIMATIONS
+
+               gsap.fromTo(abilitiesElementsRef.current.children,{y: '+=400',opacity:0},{y:0,opacity:1,stagger:.3,duration:.6,scrollTrigger:{
                 trigger:'.abilities',
-                start: 'top 50%',
-               // markers:true,
+                start: 'top 10%',
+            //    markers:true,
+                pinReparent:true,
+                toggleActions: "play reverse play reverse"
+            }})
+
+            gsap.fromTo(abilitiesContentRef.current.children,{scale:.5,opacity:0},{scale:1,opacity:1,stagger:.3,duration:.6,scrollTrigger:{
+                trigger:'.abilities',
+                start: 'top 30%',
+             //   markers:true,
                 pinReparent:true,
                 toggleActions: "play reverse play reverse"
             }})
         }
 
-        gsap.fromTo(specialists,{x: '-=200',opacity:0},{x:0,opacity:1,stagger:.3,duration:1,scrollTrigger:{
+        gsap.fromTo(specialists,{x: '-=200',opacity:0},{x:0,opacity:1,stagger:1,duration:1,scrollTrigger:{
             trigger:'.about-me',
             start: 'top 50%',
            // markers:true,
@@ -67,6 +82,14 @@ const Sections = ({mainRef}) => {
                       demoLink
                       githubLink
                   }
+
+                  technologies{
+                      title
+                      description
+                      img{
+                          url
+                      }
+                  }
               }
           `
             );
@@ -77,7 +100,7 @@ const Sections = ({mainRef}) => {
           fetchData();
     },[]);
 
-    const { projects } = dataPage;
+    const { projects , technologies  } = dataPage;
 
     return ( 
        
@@ -86,7 +109,8 @@ const Sections = ({mainRef}) => {
         <>
             <About_me aboutMeRef={aboutMeRef}/>
             <Projects projectsRef={projectsRef} projects={projects}/>
-            <Abilities />
+            <Abilities abilitiesElementsRef={abilitiesElementsRef} abilitiesContentRef={abilitiesContentRef}/>
+            <Techologies technologies={technologies}/>
         </>)
 
             :null

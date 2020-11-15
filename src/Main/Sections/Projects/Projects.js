@@ -49,7 +49,7 @@ const Projects = ({projectsRef,projects}) => {
 
     return ( 
 
-        <section className="section projects" ref={projectsRef}>
+        <section className="section projects" ref={projectsRef} id="projects">
 
             <div className="projects__wrapper">
 

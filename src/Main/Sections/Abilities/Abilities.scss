@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 auto;
+   
 }
 
 .abilities{
@@ -19,6 +19,7 @@
         text-transform: uppercase;
         letter-spacing: 10px;
         color: #19181D;
+        text-align: center;
       
     }
 
@@ -32,11 +33,59 @@
     &__elements{
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         margin-top: 80px;
+        
+
+        @media (min-width:600px) {
+            flex-wrap: initial;
+        }
         
     }
 }
 
 .abilities__specialists-specialist{
-    margin: 0 10px;
+    margin: 0 10px 30px 0;
+
+    @media (min-width:600px) {
+        flex-wrap: initial;
+        margin: 0 10px;
+    }
+}
+
+.abilities__info{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    flex-wrap: wrap;
+    
+    @media (min-width:600px) {
+        margin: 150px 0 50px 0;
+        justify-content: space-between;
+    }
+
+    &-text{
+      margin: 25px 20px;
+      text-align: center;
+
+      @media (min-width:600px) {
+        margin: 5px 20px;
+     
+    }
+    }
+
+    &-number{
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        font-family: 'Russo One', sans-serif;
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+
+        @media (min-width:600px) {
+            margin-top: 30px;
+        }
+    }
 }
