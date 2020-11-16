@@ -26,17 +26,7 @@ const Techologies = ({technologies}) => {
 
     useEffect(()=>{
 
-        let interval  = setInterval(()=>{
-
-            console.log(technologiesContentRef.current.children)
-            tl.fromTo([technologiesContentRef.current.children],{y:'+=150',opacity:0},{opacity:1,y:0,duration:.5,stagger:.2,ease:'EaseInOut'})
-            
-
-        },10000)
-
-        return ()=>{
-            clearInterval(interval);
-        }
+      
     })
 
     return ( 

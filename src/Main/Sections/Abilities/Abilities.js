@@ -60,24 +60,7 @@ const Abilities = ({abilitiesElementsRef,abilitiesContentRef}) => {
 
                 </div>
 
-                <div className="abilities__info">
-
-                    <div className="abilities__info-text">
-                        <Section_title text="godziny poświęcone"/>
-                        <span className="abilities__info-number">122,3334 H</span>
-                    </div>
-                        
-                    <div className="abilities__info-text">
-                        <Section_title text="zaangażowanie"/>
-                        <span className="abilities__info-number">1,223334 %</span>
-                    </div>
-
-                    <div className="abilities__info-text">
-                        <Section_title text="zadowoleni klienci"/>
-                        <span className="abilities__info-number">57</span>
-                    </div>
-
-                </div>
+            
 
             </div>
 

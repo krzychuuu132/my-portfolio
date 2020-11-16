@@ -6,9 +6,11 @@ import { request } from 'graphql-request';
 import About_me from "./About-me/About-me";
 import Projects from './Projects/Projects';
 import Abilities from './Abilities/Abilities';
+import Techologies from './Technologies/Technologies';
 
 import "./Sections.scss";
-import Techologies from './technologies/Technologies';
+import Informations from './Informations/Informations';
+
 
 
 const Sections = ({mainRef}) => {
@@ -40,15 +42,15 @@ const Sections = ({mainRef}) => {
                gsap.fromTo(abilitiesElementsRef.current.children,{y: '+=400',opacity:0},{y:0,opacity:1,stagger:.3,duration:.6,scrollTrigger:{
                 trigger:'.abilities',
                 start: 'top 10%',
-            //    markers:true,
+               // markers:true,
                 pinReparent:true,
                 toggleActions: "play reverse play reverse"
             }})
 
             gsap.fromTo(abilitiesContentRef.current.children,{scale:.5,opacity:0},{scale:1,opacity:1,stagger:.3,duration:.6,scrollTrigger:{
                 trigger:'.abilities',
-                start: 'top 30%',
-             //   markers:true,
+                start: 'top 10%',
+               markers:true,
                 pinReparent:true,
                 toggleActions: "play reverse play reverse"
             }})
@@ -110,6 +112,7 @@ const Sections = ({mainRef}) => {
             <About_me aboutMeRef={aboutMeRef}/>
             <Projects projectsRef={projectsRef} projects={projects}/>
             <Abilities abilitiesElementsRef={abilitiesElementsRef} abilitiesContentRef={abilitiesContentRef}/>
+            <Informations />
             <Techologies technologies={technologies}/>
         </>)
 
