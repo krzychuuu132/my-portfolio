@@ -9,6 +9,7 @@ import Section_btn from '../Utilities/Section_btn/Section_btn';
 import Contact_sources  from '../Utilities/Contact_sources/Contact_sources';
 
 import "./Article.scss";
+import { Link } from 'react-router-dom';
 
 
 
@@ -38,9 +39,9 @@ const Article = () => {
 
             <div className="article__content">
 
-            <Section_btn title="moje projekty" section="article"/> 
+             <a href="#projects" className="article__info-link">  <Section_btn title="moje projekty" section="article"/> </a>
 
-                <div className="article__info">
+                <div className="article__info" >
 
                     <div className="article__info-picture">
                             <Name_surname  />
@@ -55,7 +56,7 @@ const Article = () => {
                     <p className="article__info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium ante ligula, vitae lobortis nunc egestas semper. Nullam nec pulvinar purus, eu rutrum nisl. </p>
                 </div>
 
-              <Section_btn title="skontaktuj sie" section="article"/> 
+              <a href="#contact" className="article__info-link">  <Section_btn title="skontaktuj sie" section="article"/> </a> 
 
             </div>
 

@@ -18,7 +18,7 @@ const About_me = ({aboutMeRef}) => {
     },[]);
 
   
-    const handleSpecialistMove = (e) =>{
+   /* const handleSpecialistMove = (e) =>{
         const letters = e.target.innerText.split("");
 
         letters.map(letter=>{
@@ -30,7 +30,7 @@ const About_me = ({aboutMeRef}) => {
             
         })
     }
-    
+    */
 
    
 
@@ -54,7 +54,7 @@ const About_me = ({aboutMeRef}) => {
 
                     <div className="about-me__specialists-specialist section__specialists-specialist">
 
-                        <div className="about-me__specialists-btn section__specialists-btn" id="one" onMouseMove={handleSpecialistMove}>Lorem ipsum</div>
+                        <div className="about-me__specialists-btn section__specialists-btn" id="one" >Lorem ipsum</div>
                         <p className="about-me__specialists-description section__specialists-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue tellus convallis tortor pretium sagittis. 
                         </p>
@@ -63,7 +63,7 @@ const About_me = ({aboutMeRef}) => {
 
                     <div className="about-me__specialists-specialist section__specialists-specialist">
 
-                        <div className="about-me__specialists-btn section__specialists-btn" id="one" onMouseMove={handleSpecialistMove}>Lorem ipsum</div>
+                        <div className="about-me__specialists-btn section__specialists-btn" id="one" >Lorem ipsum</div>
                         <p className="about-me__specialists-description section__specialists-description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue tellus convallis tortor pretium sagittis. 
                         </p>

@@ -26,6 +26,11 @@
         min-width: 300px;
         margin: 0 auto;
         position: relative;
+
+        &-link{
+            text-decoration: none;
+            color: black;
+        }
       
 
         &-imgs{

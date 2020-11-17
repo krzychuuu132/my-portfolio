@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Section_btn.scss';
 
-const Section_btn = ({title,section}) => {
+const Section_btn = ({title,section,id}) => {
     return ( 
 
             <button className={`section__btn ${section}__btn`}>
