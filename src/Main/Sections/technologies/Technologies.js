@@ -6,7 +6,7 @@ import './Technologies.scss';
 
 
 
-const Techologies = ({technologies}) => {
+const Technologies = ({technologies}) => {
 
     const [counter,setCounter]  = useState(0);
 
@@ -70,4 +70,4 @@ const Techologies = ({technologies}) => {
      );
 }
  
-export default Techologies;
+export default Technologies;

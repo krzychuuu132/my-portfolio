@@ -6,7 +6,7 @@ import { request } from 'graphql-request';
 import About_me from "./About-me/About-me";
 import Projects from './Projects/Projects';
 import Abilities from './Abilities/Abilities';
-import Techologies from './Technologies/Technologies';
+import Technologies from './Technologies/Technologies';
 import Informations from './Informations/Informations';
 
 import "./Sections.scss";
@@ -114,7 +114,7 @@ const Sections = ({mainRef}) => {
             <Projects projectsRef={projectsRef} projects={projects}/>
             <Abilities abilitiesElementsRef={abilitiesElementsRef} abilitiesContentRef={abilitiesContentRef}/>
             <Informations />
-            <Techologies technologies={technologies}/>
+            <Technologies technologies={technologies}/>
         </>)
 
             :null
