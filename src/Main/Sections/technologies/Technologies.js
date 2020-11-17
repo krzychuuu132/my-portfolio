@@ -1,20 +1,10 @@
 import React,{ useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
-import SwiperCore, { Navigation, Pagination, Scrollbar,EffectFade,Controller } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
-import 'swiper/components/controller/controller.scss';
-import 'swiper/components/effect-cube/effect-cube.scss';
 
 import './Technologies.scss';
 
-SwiperCore.use([ EffectFade, Navigation, Pagination, Scrollbar,Controller]);
+
 
 const Techologies = ({technologies}) => {
 
@@ -24,10 +14,15 @@ const Techologies = ({technologies}) => {
 
     const tl = gsap.timeline();
 
-    useEffect(()=>{
+    
 
-      
-    })
+    console.log(technologies)
+
+    const handleTechnologyClick  = (e,index) =>{
+        setCounter(index);
+        gsap.fromTo(e.target,{scale:.7},{scale:1,ease:'EaseInOut'});
+        gsap.fromTo(technologiesContentRef.current,{opacity:0},{opacity:1,ease:'EaseInOut'});
+    }
 
     return ( 
 
@@ -47,7 +42,7 @@ const Techologies = ({technologies}) => {
 
                             <span className="technologies__content-name section__title">{technologies[counter].title}</span>
 
-                            <span className="technologies__content-text section__specialists-description">Lorem ipsum dolor</span>
+                           
                         
                         </div>
                     
@@ -55,25 +50,16 @@ const Techologies = ({technologies}) => {
 
                     <div className="technologies__slider">
 
-                    <Swiper
-                    effect="slide"
-                    controller
-                    navigation
-                    pagination
-                    >
-                        <SwiperSlide>
+                
                         {
                             technologies.map((technologie,index)=>(
 
-                                <div className="technologies__slider-picture" key={index}>
+                                <div className={index===counter?"technologies__slider-picture technologies__slider-picture--active":"technologies__slider-picture"} key={index} onClick={(e)=>handleTechnologyClick(e,index)}>
                                         <img src={technologie.img.url} alt="technologies"/>
                                 </div>
                             ))
                         }
-                        </SwiperSlide>
-                      
-      
-                    </Swiper>
+                    
 
                     </div>
 
