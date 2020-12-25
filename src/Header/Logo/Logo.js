@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import {Link} from "react-router-dom"
 
-import My_logo from "../../img/My_logo.png"; 
+import {ReactComponent as My_logo} from "../../img/My_logo.svg"; 
 
 import "./Logo.scss";
 
@@ -20,7 +20,7 @@ const Logo = () => {
 
     return ( 
         <div className="logo" onMouseMove={handleMouseMove}>
-            <Link to="/" className="logo__link" rel="Home"><img src={My_logo} alt="Krzysztof-logo"  className="logo__picture"/></Link>
+            <Link to="/" className="logo__link" rel="Home"><My_logo  alt="Krzysztof-logo"  className="logo__picture"/></Link>
             <div className="logo__backgr" ref={logoBackRef}/>
         </div>
      );

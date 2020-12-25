@@ -13,7 +13,7 @@ const Abilities = ({abilitiesElementsRef,abilitiesContentRef}) => {
                 
                 <div className="abilities__content" ref={abilitiesContentRef}>
 
-                        <h2 className="abilities__skills">Jakie skille posiadam ?</h2>
+                        <h3 className="abilities__skills">Jakie skille posiadam ?</h3>
 
                         <p className="section__text abilities__text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget justo pellentesque, fermentum velit vel, dictum lorem. Fusce vel ipsum sapien. Vivamus fringilla ut nisi sit amet vehicula. Vestibulum tempus facilisis eros et efficitur. Phasellus velit elit, ullamcorper eu diam a, mollis mollis augue. Phasellus accumsan convallis ipsum, non sagittis eros volutpat vitae. Donec vitae laoreet felis.

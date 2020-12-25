@@ -28,7 +28,7 @@ const Projects = ({projectsRef,projects}) => {
 
         const tl = gsap.timeline({repeatDelay:0});
 
-        
+        console.log(projects)
     
         // HOOKS
 
@@ -38,6 +38,7 @@ const Projects = ({projectsRef,projects}) => {
         // ~useRef
         const projectDescriptionRef = useRef(null);
         const projectTitleRef  =  useRef(null);
+        const projectTechnologiesRef = useRef(null);
 
     const slideChange  = (activeIndex) =>{
       //  console.log(activeIndex,counter)
@@ -45,6 +46,10 @@ const Projects = ({projectsRef,projects}) => {
 
       //  tl.fromTo(projectTitleRef.current,{opacity:0,x:100},{x:0,ease: "elastic.out(1, 0.3)",opacity:1})
        // .fromTo(projectDescriptionRef.current,{opacity:0,scale:.5},{scale:1,ease: "elastic.out(1, 0.3)",opacity:1});
+        setCounter(activeIndex);
+       gsap.fromTo(projectTechnologiesRef.current,{opacity:0},{opacity:1,duration:.8});
+
+      
     }
 
     return ( 
@@ -93,11 +98,19 @@ const Projects = ({projectsRef,projects}) => {
 
             <div className="projects__view">
 
+                <div className="projects__view-technologies" ref={projectTechnologiesRef}>
+                    {
+                        projects[counter].projectTechnologie["img"].map(technologie=>(
+                            <img src={technologie.url} key={technologie.id} className="projects__view-technologie" width={40}/>
+                        ))
+                    }
+                </div>
+
                 <Swiper
                 effect="cube"
                 navigation
                 pagination
-                onSlideChange={({activeIndex}) => setCounter(activeIndex)}
+                onSlideChange={({activeIndex}) => slideChange(activeIndex)}
                 >
                    
                    {

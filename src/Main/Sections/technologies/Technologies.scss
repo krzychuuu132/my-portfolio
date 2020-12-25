@@ -1,8 +1,9 @@
-
+@import "../../../styles/functions.scss";
 
 
 .technologies{
-
+    background-color: #edf1f5;
+   
 }
 
 .technologies__wrapper{
@@ -22,36 +23,40 @@
 
     &__content{
         width: 100%;
-     
-        
-     
         margin-bottom: 30px;
-        margin-right: 50px;
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
         @media (min-width:768px) {
-            max-width: 480px;
-            min-width: 450px;
-            margin-bottom: 0px;
+            //max-width: 480px;
+           // min-width: 450px;
+            width: 100%;
+            margin-right: 50px;
             height: 250px;
         }
 
         &-details{
             padding-left: 30px;
+            text-align: center;
+            max-width: 480px;
+            min-width: 330px;
         }
         
 
         &-title{
+            width: 100%;
             font-size: 1.4rem;
             line-height: 2rem;
             letter-spacing: 5px !important;
-            
+            text-align: left;
         }
 
         &-name{
             margin: 25px 0 0 0;
             display: block;
             letter-spacing: 2px !important;
-            text-align: left !important;
+          
             font-size: .8rem;
            // animation: move_text 4s 12s ease-in-out both;
             
@@ -96,32 +101,7 @@
 
     }
 
-    @keyframes scale_element {
-        0%{
-            transform: scale(1);
-         
-        }
-
-        25%{
-            transform: scale(.7);
-         
-        }
-
-        50%{
-            transform: scale(1);
-        
-        }
-
-        75%{
-            transform: scale(.7);
-        
-        }
-
-        100%{
-            transform: scale(1);
-        
-        }
-    }
+   
 
     &__slider{
         flex-grow: 1;
@@ -129,6 +109,8 @@
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
+        position: relative;
+
         &-picture{
             filter: brightness(.4);
             cursor: pointer;
@@ -145,9 +127,42 @@
 
             &--active{
                 filter: brightness(1);
-                animation: scale_element 2.2s 6s ease-in-out infinite both;
+                animation: scale_element 2.2s  ease-in-out infinite both;
             }
         }
     }
+}
+
+.technologies__slider-dots{
+    display: flex;
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    transform: translateY(20px) translateX(50%);
+   
+
+    @media (min-width:1024px) {
+        transform: translateY(80px) translateX(0);
+        margin-right: 50px;
+        right: 0;
+     }
+
+    &-dot{
+        width: 7px;
+        height: 7px;
+        border-radius: 25px;
+        background-color: lightgray;
+        margin-right: 10px;
+        cursor: pointer;
+
+        &:nth-last-of-type(1){
+            margin-right: 0;
+        }
+    }
+}
+
+.technologies .nav__menu-contact_title{
+    margin: 20px auto;
+    
 }
 

@@ -53,7 +53,7 @@ const Article = () => {
 
                     
                     <h2 className="article__info-position">junior front end developer</h2>
-                    <p className="article__info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium ante ligula, vitae lobortis nunc egestas semper. Nullam nec pulvinar purus, eu rutrum nisl. </p>
+                    <p className="article__info-text">Jestem kreatywnym front-end-developerem,który codziennie zasiada do komputera w celu pogłębiania swojej wiedzy i niwelowania błędów. </p>
                 </div>
 
               <a href="#contact" className="article__info-link">  <Section_btn title="skontaktuj sie" section="article"/> </a> 

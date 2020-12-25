@@ -10,6 +10,7 @@ import Technologies from './Technologies/Technologies';
 import Informations from './Informations/Informations';
 
 import "./Sections.scss";
+import Contact from './Contact/Contact';
 
 
 
@@ -19,6 +20,7 @@ const Sections = ({mainRef}) => {
     const [dataPage,setDataPage] = useState([]);
     const aboutMeRef = useRef(null);
     const projectsRef = useRef(null);
+    const contactRef = useRef(null);
 
     // ABILITIES
     const abilitiesElementsRef = useRef(null);
@@ -42,15 +44,15 @@ const Sections = ({mainRef}) => {
 
                gsap.fromTo(abilitiesElementsRef.current.children,{y: '+=400',opacity:0},{y:0,opacity:1,stagger:.3,duration:.6,scrollTrigger:{
                 trigger:'.abilities',
-                start: 'top 10%',
-               // markers:true,
+                start: 'top 100',
+             //   markers:true,
                 pinReparent:true,
                 toggleActions: "play reverse play reverse"
             }})
 
             gsap.fromTo(abilitiesContentRef.current.children,{scale:.5,opacity:0},{scale:1,opacity:1,stagger:.3,duration:.6,scrollTrigger:{
                 trigger:'.abilities',
-                start: 'top 10%',
+                start: 'top 400',
             //   markers:true,
                 pinReparent:true,
                 toggleActions: "play reverse play reverse"
@@ -65,7 +67,14 @@ const Sections = ({mainRef}) => {
             toggleActions: "play reverse play reverse"
         }})
 
-      
+        console.log(document.querySelectorAll('.contact > .wrapper > div'))
+
+        gsap.fromTo(document.querySelectorAll('.contact > .wrapper > div'),{y: '100%',opacity:0},{y:0,opacity:1,stagger:.3,duration:.6,ease:'EaseInOut',scrollTrigger:{
+            trigger:'.contact',
+            start: 'top 500',
+            pinReparent:true,
+            toggleActions: "play reverse play reverse"
+        }})
       
     },[dataPage])
 
@@ -84,6 +93,12 @@ const Sections = ({mainRef}) => {
                       title
                       demoLink
                       githubLink
+                      projectTechnologie{
+                        img{
+                          id
+                          url
+                        }
+                      }
                   }
 
                   technologies{
@@ -115,6 +130,8 @@ const Sections = ({mainRef}) => {
             <Abilities abilitiesElementsRef={abilitiesElementsRef} abilitiesContentRef={abilitiesContentRef}/>
             <Informations />
             <Technologies technologies={technologies}/>
+            <Contact contactRef={contactRef}/>
+            
         </>)
 
             :null

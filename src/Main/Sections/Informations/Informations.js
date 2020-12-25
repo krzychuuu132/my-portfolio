@@ -18,7 +18,7 @@ const Informations = () => {
     
                 <div className="informations__info-text">
                         <Section_title text="zaangażowanie"/>
-                        <span className="informations__info-number">1,223334 %</span>
+                        <span className="informations__info-number">122,3334 %</span>
                 </div>
 
                 <div className="informations__info-text">

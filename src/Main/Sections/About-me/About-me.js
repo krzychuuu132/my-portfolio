@@ -39,7 +39,7 @@ const About_me = ({aboutMeRef}) => {
         <section className="section about-me" ref={aboutMeRef} id="about-me">
 
             <div className="about-me__features">
-                    <h2 className="about-me__features-feature">{features[featureNumber]}</h2>
+                    <span className="about-me__features-feature">{features[featureNumber]}</span>
             </div>
 
             <div className="about-me__description section__description">
@@ -47,7 +47,7 @@ const About_me = ({aboutMeRef}) => {
                 <Section_title text="kim jestem"/> 
 
                 <p className="about-me__description-text section__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut congue tellus convallis tortor pretium sagittis. Aliquam volutpat et arcu id sollicitudin. Pellentesque pretium sem tellus, in egestas tortor ultrices eu. Etiam nec finibus dui, non efficitur tellus.    
+                   Nazywam się Krzysztof,uczę się kodowania od półtora roku.Zaledwie od niedawna przyjmuję zlecenia jako freelancer,co nie oznacza ,że nie rozwijam się dalej po godzinach. 
                 </p>           
             
                 <div className="about-me__specialists">
